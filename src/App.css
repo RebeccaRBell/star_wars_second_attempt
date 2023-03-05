@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  background-color: black;
-  height: 130vh;
+  background:linear-gradient(to right, rgb(20, 20, 21), rgb(40, 10, 20), rgb(10,10,30));
+  height: 150vh;
   margin: 0px;
   padding: 0px;
 }
@@ -23,12 +23,13 @@ ul {
 }
 .film-list li {
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  background-color: rgba(30, 30, 30, 0.7);
+  background-color: rgba(108, 70, 70, 0.7);
   color: white;
   margin: 10px;
   font-size: 22px;
   border-radius: 10px;
   padding: 10px;
+  border: 2px solid rgb(151, 97, 97);
 }
 .film-list li:hover{
   background-image: url('./space.png');
@@ -59,7 +60,7 @@ ul {
 
 }
 .detail-left{
-  width: 60%;
+  width: 70%;
   padding: 20px;
   margin: 0 auto;
   font-size: 18px;
@@ -75,4 +76,35 @@ ul {
   background-color: rgba(30, 30, 30, 0.8);
   border-radius: 0px 30px 30px 0px;
 
+}
+.character-starship {
+  display: flex;
+  justify-content: center;
+  width: 85%;
+  margin: 0 auto;
+  margin-top: 20px;
+  padding: 10px;
+}
+.character-ship-container{
+  margin: 0 auto;
+  color: white;
+  text-transform: capitalize;
+  width: 50%;
+  border-radius: 30px;
+  background-image: url('./space.png');
+  margin: 10px;
+}
+.character-ship-details{
+margin: 0 auto;
+  font-size: 18px;
+  background-color: rgba(30, 30, 30, 0.8);
+  border-radius: 30px;
+  margin: 20px;
+  height: 300px;
+  padding: 20px;
+
+}
+.character-starship h1{
+  font-size: 28px;
+  margin-bottom: 40px;
 }

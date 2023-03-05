@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react'
 import FilmList from '../components/FilmList';
 import FilmDetail from '../components/FilmDetail';
+import CharacterDetail from '../components/CharacterDetail';
+import StarshipDetail from '../components/StarshipDetail';
 
 
 
@@ -11,6 +13,7 @@ const FilmContainer = () => {
         const [characters, setCharacters] = useState([]);
         const [starships, setStarships] = useState([]);
         const [chosenCharacter, setChosenCharacter] = useState(null);
+        const [chosenStarship, setChosenStarship] = useState(null);
 
   useEffect( () => {
     fetch('https://swapi.dev/api/films')
@@ -42,14 +45,23 @@ const FilmContainer = () => {
   }
 
   const setSelectCharacter = function(character){
-    setChosenCharacter(character);
+    fetch(character).then(res => res.json())
+    .then(character => setChosenCharacter(character))
+    console.log(chosenCharacter)
   }
- 
+  const setSelectStarship = function(starship){
+    fetch(starship).then(res => res.json())
+    .then(ship => setChosenStarship(ship))
+ }
 
   return (
     <div className='container'>
       <FilmList films={films} handleSelectChange={handleSelectChange}/>
-      { selectedFilm ? <FilmDetail film={selectedFilm} characters={characters} starships={starships} setSelectCharacter />: null}
+      { selectedFilm ? <FilmDetail film={selectedFilm} characters={characters} starships={starships} setSelectCharacter={setSelectCharacter} setSelectStarship={setSelectStarship}/>: null}
+     <div className='character-starship'>
+     { chosenCharacter  ? <CharacterDetail character={chosenCharacter} />: null}
+      { chosenStarship ? <StarshipDetail starship={chosenStarship} />: null}
+      </div>
     </div>
   )
 }
